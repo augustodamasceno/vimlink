@@ -13,3 +13,7 @@
  :only            - keep only this window open
  :ls              - show current buffers
  :b 2             - open buffer #2 in this window
+
+# ...
+
+:winc = : equal size windows
