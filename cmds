@@ -6,5 +6,8 @@ q! : exit without save
 :wq : exit & save
 :v : select line
 :w : remove word
-
-
+:number : go to line "number"
+:0 : move cursor to init
+:$ : move curso to end
+:!"shell command""
+/word : search "word" word
