@@ -1,3 +1,10 @@
-# switch between command and iterative modes
-esc : command
-i : iterative
+esc : command mode
+i : iterative mode
+q! : exit without save
+:q : exit
+:w : save
+:wq : exit & save
+:v : select line
+:w : remove word
+
+
