@@ -21,3 +21,25 @@ ctrl-u : remove line
 crtl-g : filename
 set lines=numberOFlin
 set columns=numberOFcol
+
+# FROM http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim
+# Comandos para alteração do texto
+
+x - Deleta o caractere que está sob o cursor;
+dw - Deleta a palavra, da posição atual do cursor até o final;
+dd - Deleta a linha atual, e copia o conteúdo para área de transferência;
+D - Deleta a linha a partir da posição atual do cursor até o final;
+:A,Bd - Deleta da linha A até a linha B, copia para área de transferência;
+rx - Substitui o caractere sob o cursor pelo especificado em x;
+u - Desfaz a última modificação;
+U - Desfaz todas as modificações feitas na linha atual;
+J - Une a linha corrente a próxima;
+yy - ECopia 1 linha para a área de transferência;
+yNy - Copia N linhas para a área de transferência;
+p - Cola o conteúdo da área de transferência;
+Np - Cola N vezes o conteúdo da área de transferência;
+cc - Apaga o conteúdo da linha, e copia para área de transferência;
+cNc - Apaga o conteúdo de N linhas, e copia para área de transferência (a partir da linha atual);
+ndd - Deleta o conteúdo de n linhas a partir da linha atual;
+nD - Deleta a linha a partir da posição atual do cursor até o fim de n linhas.
+
