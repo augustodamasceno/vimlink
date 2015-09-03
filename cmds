@@ -5,9 +5,13 @@ q! : exit without save
 :w : save
 :wq : exit & save
 :v : select line
+:y : copy text
+:p : paste text
 :w : remove word
+:u : remove line
 :number : go to line "number"
 :0 : move cursor to init
 :$ : move curso to end
 :!"shell command""
 /word : search "word" word
+:shell : open shell session (close with "exit")
