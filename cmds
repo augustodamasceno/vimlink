@@ -11,7 +11,10 @@ ctrl-w : remove word
 ctrl-u : remove line
 :number : go to line "number"
 :0 : move cursor to init
-:$ : move curso to end
+:$ : move cursor to end
 :!"shell command""
 /word : search "word" word
 :shell : open shell session (close with "exit")
+:%s/search_for_this/replace_with_this/ 
+:%s/search_for_this/replace_with_this/c
+:mk letter : mark ('letter : got to mark)
