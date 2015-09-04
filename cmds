@@ -22,8 +22,8 @@ crtl-g : filename
 set lines=numberOFlin
 set columns=numberOFcol
 
-# FROM http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim
-# Comandos para alteração do texto
+" FROM http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim
+" Comandos para alteração do texto
 
 x - Deleta o caractere que está sob o cursor;
 dw - Deleta a palavra, da posição atual do cursor até o final;
