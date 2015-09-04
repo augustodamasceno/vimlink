@@ -1,4 +1,4 @@
- # From https://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
+ " From https://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
  
  :e filename      - edit another file
  :split filename  - split window and load another file
@@ -14,6 +14,6 @@
  :ls              - show current buffers
  :b 2             - open buffer #2 in this window
 
-# ...
+" ...
 
 :winc = : equal size windows
