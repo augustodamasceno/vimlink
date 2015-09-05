@@ -10,4 +10,5 @@ if (test -e ~/.vimrc)
         mv ~/.vimrc ~/.vimrc_backup
 fi
 
-cp .vimrc ~/.vimrc
+
+cat .vimrc | grep -v \" > ~/.vimrc
