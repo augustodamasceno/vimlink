@@ -10,6 +10,9 @@ syntax on
 "   the appropriate number of spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
 
+" Equal size windoiws
+winc = 
+
 " F2 save
 noremap <F2> :w<CR>
 " F3 save and exit
