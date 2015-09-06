@@ -18,7 +18,7 @@ noremap <F2> :w<CR>
 """ F3 save and exit
 noremap <F3> :wq<CR>
 """ F4 run compile
-noremap <F4> :!sh compile.sh
+noremap <F4> :!sh compile.sh<CR>
 """ F5 force quit
 noremap <F5> :q!<CR>
 
