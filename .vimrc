@@ -13,6 +13,9 @@ set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 """ Equal size windows
 winc = 
 
+""" Dictionaries
+set dictionary+=/usr/share/dict/words
+
 """ F2 save
 noremap <F2> :w<CR>
 """ F3 save and exit
@@ -30,4 +33,4 @@ noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
 \int main(int argc, char ** argv)\n
 \{\n
 \  return 0;\n
-\} \"")<CR>
+\} \"")<CR><Esc><CR>

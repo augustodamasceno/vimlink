@@ -87,3 +87,18 @@ nD - Deleta a linha a partir da posição atual do cursor até o fim de n linhas
 " ...
 
 :winc = : equal size windows
+
+" Completions
+" From http://www.thegeekstuff.com/2009/01/
+"  vi-and-vim-editor-5-awesome-examples-for-
+"  automatic-word-completion-using-ctrl-x-magic/
+
+" Line completion
+Ctrl-x Ctrl-l
+" Word completion
+Ctrl-x Ctrl-n
+Ctrl-x Ctrl-p
+" Filename completion
+Ctrl-x Ctrl-f
+" Dictionary completion
+Ctrl-x Ctrl-k
