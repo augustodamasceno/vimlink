@@ -7,3 +7,4 @@ Run "nocomments.sh" differs from "install.sh" just by removing spaces and commen
 
 If you don't have a .vimrc file, it's just create a new one for you.
 
+Removing second order backups: rm ~/.vimrc_backup_*
