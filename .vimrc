@@ -34,3 +34,4 @@ noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
 \{\n
 \  return 0;\n
 \} \"")<CR><Esc><CR>
+
