@@ -24,11 +24,11 @@ noremap <F3> :wq<CR>
 noremap <F4> :!sh compile.sh<CR>
 """ F5 force quit
 noremap <F5> :q!<CR>
-
+""" Switch buffer files
+noremap <C-b> :bn<CR>
 
 """ C programming commands
 noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
-\#include <stdio.h>\n\n
 \#include <stdio.h>\n\n
 \int main(int argc, char ** argv)\n
 \{\n
