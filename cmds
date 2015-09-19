@@ -1,6 +1,3 @@
-
-
-
 esc : command mode
 i : iterative mode
 q! : exit without save
