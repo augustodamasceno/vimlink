@@ -26,6 +26,8 @@ noremap <F4> :!sh compile.sh<CR>
 noremap <F5> :q!<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
+""" Execute /usr/bin/vimprog1
+noremap exec1 :!/usr/bin/vimprog1
 
 """ C programming commands
 noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
