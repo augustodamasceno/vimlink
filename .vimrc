@@ -6,9 +6,9 @@ syntax on
 
 """ Tabs are four columns wide
 """ Each indentation level is one tab
-""" Tab in insert mode will not produce
+""" Tab in insert mode will produce
 """   the appropriate number of spaces
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab 
 
 """ Equal size windows
 winc = 
@@ -28,6 +28,8 @@ noremap <F5> :q!<CR>
 noremap <C-b> :bn<CR>
 """ Execute /usr/bin/vimprog1
 noremap exec1 :!/usr/bin/vimprog1
+""" Indent All Lines
+noremap <C-i> gg=G
 
 """ C programming commands
 noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
