@@ -14,20 +14,22 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 winc = 
 
 """ Dictionaries
-set dictionary+=/usr/share/dict/words
+""" See https://packages.debian.org/jessie/wordlist
+set dictionary+=/usr/share/dict/american-english
+set dictionary+=/usr/share/dict/brazilian
 
 """ F2 save
 noremap <F2> :w<CR>
 """ F3 save and exit
 noremap <F3> :wq<CR>
-""" F4 run compile
+""" F4 run compile.sh
 noremap <F4> :!sh compile.sh<CR>
 """ F5 force quit
 noremap <F5> :q!<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Execute /usr/bin/vimprog1
-noremap exec1 :!/usr/bin/vimprog1
+noremap exec1 :!/usr/bin/vimexec1
 """ Indent All Lines
 noremap <C-i> gg=G
 
