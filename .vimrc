@@ -15,8 +15,9 @@ winc =
 
 """ Dictionaries
 """ See https://packages.debian.org/jessie/wordlist
-set dictionary+=/usr/share/dict/american-english
+set dictionary+=/usr/share/dict/american-english-insane
 set dictionary+=/usr/share/dict/brazilian
+
 
 """ F2 save
 noremap <F2> :w<CR>
