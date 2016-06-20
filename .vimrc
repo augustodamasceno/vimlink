@@ -6,7 +6,8 @@ syntax on
 
 """ Tabs are four columns wide
 """ Each indentation level is one tab
-set tabstop=4 softtabstop=4 shiftwidth=4 
+""" expandtab change tab for spaces
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
 
 """ Equal size windows
 winc = 
