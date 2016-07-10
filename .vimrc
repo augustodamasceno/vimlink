@@ -41,3 +41,5 @@ noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
 \  return 0;\n
 \} \"")<CR><Esc><CR>
 
+""" Convert tabs into 4 spaces
+noremap ctabs :%s/\t/    /g
