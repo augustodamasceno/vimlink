@@ -22,6 +22,9 @@ crtl-g : filename
 set lines=numberOFlin
 set columns=numberOFcol
 
+" Change tabs per spaces
+:%s/\t/    /g
+
 " FROM http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim
 " Comandos para alteração do texto
 
