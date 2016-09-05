@@ -41,5 +41,16 @@ noremap ctest i<C-r>=system("echo \"#include <stdlib.h>\n
 \  return 0;\n
 \} \"")<CR><Esc><CR>
 
+""" Compile Script for F4 Function
+noremap fun4 i<C-r>=system("echo \"#!/bin/bash\n\n\n
+\echo ------------BEGIN---------------\n
+\echo ------------REMOVE--------------\n
+\rm\n
+\echo ------------COMPILE-------------\n\n
+\echo ------------EXECUTE-------------\n
+\./\n
+\echo ------------END-----------------\"")<CR><Esc><CR>
+
+
 """ Convert tabs into 4 spaces
 noremap ctabs :%s/\t/    /g
