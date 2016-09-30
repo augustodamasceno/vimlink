@@ -51,6 +51,23 @@ noremap fun4 i<C-r>=system("echo \"#!/bin/bash\n\n\n
 \./\n
 \echo ------------END-----------------\"")<CR><Esc><CR>
 
-
 """ Convert tabs into 4 spaces
 noremap ctabs :%s/\t/    /g
+
+""" MPI Support -- MPI INIT
+"""noremap minit i<C-r>=system("echo \"/* INIT */\n
+"""\int comm_sz;\n
+"""\int my_rank;\n\n
+"""\/* int MPI_Init(&argc, &argv); */\n
+"""\MPI_Init(NULL, NULL);\n\n
+"""\MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);\n
+"""\MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);\n\n
+"""\MPI_Finalize();\n\"")<CR><Esc><CR>
+
+""" MPI Support -- MPI SEND
+"""noremap msend i<C-r>=system("echo \"
+"""\MPI_Send(void*, int count, MPI_Datatype, \
+"""\int dest, int tag, MPI_COMM_WORLD);\n
+"""\ \"")<CR><Esc><CR>
+
+
