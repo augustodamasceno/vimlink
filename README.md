@@ -26,6 +26,7 @@ Removing second order backups: rm ~/.vimrc_backup_*
 * F3 command : save and exit the file  
 * F4 command : run the script compile.sh in the same directory  
 * F5 command : exit without change the file  
+* F7 command : run python with the current file
 * Control + b command : change buffer files  
 * "exec1" command : call /usr/bin/vimexec1 programm  
 * Control + i command : Indent all lines  
