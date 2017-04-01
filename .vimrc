@@ -26,6 +26,8 @@ noremap <F3> :wq<CR>
 noremap <F4> :!sh compile.sh<CR>
 """ F5 force quit
 noremap <F5> :q!<CR>
+""" F7 run python with the current file
+noremap <F7> :!python %<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Execute /usr/bin/vimprog1
