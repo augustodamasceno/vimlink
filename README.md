@@ -1,6 +1,6 @@
 # My vim  
 
-
+```
 Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.
 
 Run "nocomments.sh" differs from "install.sh" just by removing spaces and comments of the .vimrc file.
@@ -8,6 +8,7 @@ Run "nocomments.sh" differs from "install.sh" just by removing spaces and commen
 If you don't have a .vimrc file, it's just create a new one for you.
 
 Removing second order backups: rm ~/.vimrc_backup_*  
+```
 
 ## Features and commands 
 
@@ -22,38 +23,31 @@ Removing second order backups: rm ~/.vimrc_backup_*
 /usr/share/dict/brazilian  
 /usr/share/dict/words  
 ```
-* F2 command : save the file  
-* F3 command : save and exit the file  
-* F4 command : run the script compile.sh in the same directory  
-* F5 command : exit without change the file  
-* F7 command : run python with the current file
-* Control + b command : change buffer files  
-* "exec1" command : call /usr/bin/vimexec1 programm  
-* Control + i command : Indent all lines  
-* "ctest" command : write inside the file:  
-```
-#include <stdlib.h>
-#include <stdio.h>
-
-int main(int argc, char ** argv)
-{
-  return 0;
-} 
-```
-* "fun4" command : write inside the file:
-```
-#!/bin/bash
-
-
-echo ------------BEGIN---------------
-echo ------------REMOVE--------------
-rm
-echo ------------COMPILE-------------
-
-echo ------------EXECUTE-------------
-./
-echo ------------END-----------------
-
-
-```
-* "ctabs" command : Convert tabs into 4 spaces  
+| Command | Description |  
+| -- | -- |  
+| F2 | save the file |  
+| F3 | save and exit the file |  
+| F4 | run the script file "compile.sh" in the same directory |    
+| F5 | exit without change the file |  
+| F7 | run python with the current file |  
+| Control + b | switch between buffer files |       
+| Control + i | indent all lines |   
+| Type "ctabs" | convert tabs into 4 spaces |  
+| Type "exec1" | call /usr/bin/vimexec1 programm |  
+| Type "ctest" | write inside the file: |    
+||#include <stdlib.h> |
+||#include <stdio.h> |
+||int main(int argc, char ** argv) |  
+||{ |  
+||  return 0; |  
+||} |  
+|| |  
+| Type "fun4" | write inside the file: |  
+||#!/bin/bash|  
+||echo ------------BEGIN---------------|  
+||echo ------------REMOVE--------------|  
+||rm|  
+||echo ------------COMPILE-------------|  
+||echo ------------EXECUTE-------------|  
+||./|  
+||echo ------------END-----------------|     
