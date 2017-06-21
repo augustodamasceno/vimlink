@@ -28,6 +28,9 @@ noremap <F4> :!sh compile.sh<CR>
 noremap <F5> :q!<CR>
 """ F7 run python with the current file
 noremap <F7> :!python %<CR>
+""" F8 Convert tabs into 4 spaces
+noremap <F8> :%s/\t/    /g<CR>
+
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Execute /usr/bin/vimprog1
@@ -53,6 +56,4 @@ noremap fun4 i<C-r>=system("echo \"#!/bin/bash\n\n\n
 \./\n
 \echo ------------END-----------------\"")<CR><Esc><CR>
 
-""" Convert tabs into 4 spaces
-noremap ctabs :%s/\t/    /g
 
