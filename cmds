@@ -106,3 +106,24 @@ Ctrl-x Ctrl-f
 " Dictionary completion
 Ctrl-x Ctrl-k
 
+" Sort
+" FROM: http://vim.wikia.com/wiki/Sort_lines
+
+Sort in reverse
+:%sort!
+Sort, removing duplicate lines
+:%sort u
+Sort using the external Unix sort utility, respecting month-name order
+:%!sort -M
+("respecting month-name order" means January < February < ... < December)
+
+Numeric sort
+:sort n
+(this way, 100 doesn't precede 20 in the sort)
+
+Sort subsections independently, in this example sort numbers between "start" and "end" markers
+:g/start/+1,/end/-1 sort n
+Sort only specific lines using ranges
+sort lines 296 to 349, inclusive
+
+:296,349sort
