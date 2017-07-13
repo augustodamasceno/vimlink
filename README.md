@@ -59,3 +59,4 @@ echo ------------END-----------------
 
 ```  
   
+## More commands and infos in "cmd" file.
