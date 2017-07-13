@@ -59,4 +59,4 @@ echo ------------END-----------------
 
 ```  
   
-## More commands and infos in "cmd" file.
+## More commands and infos in "cmds" file.
