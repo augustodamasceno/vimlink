@@ -18,6 +18,9 @@ set dictionary+=/usr/share/dict/american-english-insane
 set dictionary+=/usr/share/dict/brazilian
 set dictionary+=/usr/share/dict/words 
 
+""" Colors legible for dark background
+set background=dark
+
 """ F2 save
 noremap <F2> :w<CR>
 """ F3 save and exit
