@@ -49,4 +49,8 @@ noremap cbody i<C-r>=system("echo \"#include <stdlib.h>\n
 \{\n
 \  return 0;\n
 \} \"")<CR><Esc><CR>
+""" C for loop
+noremap cfor i<C-r>=system("echo \"for (i=0; i<n; i++)\n
+\{\n\n
+\}\"")<CR><Esc><CR>
 

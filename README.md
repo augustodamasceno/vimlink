@@ -1,8 +1,9 @@
 # My vim  
 
 
+## Installation  
+
 * Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.
-* Run "nocomments.sh" differs from "install.sh" just by removing spaces and comments of the .vimrc file.
 * If you don't have a .vimrc file, it's just create a new one for you.
 * Removing second order backups: rm ~/.vimrc_backup_*
 
@@ -28,7 +29,7 @@
 * F7 command : convert tabs into 4 spaces  
 * Control + b command : change buffer files  
 * Control + i command : Indent all lines  
-* "ctest" command : write inside the file:  
+* "cbody" command : write inside the file:  
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -37,6 +38,14 @@ int main(int argc, char ** argv)
 {
   return 0;
 } 
+```
+* "cfor" command : write inside the file:  
+```c
+for (i=0; i<n; i++)
+{
+
+}
+
 ```
   
 ## More commands and infos in the "man" file.  
