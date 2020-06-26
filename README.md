@@ -1,4 +1,5 @@
 # My vim  
+* My vim configuration for Unix-like systems.
 
 
 ## Installation  
