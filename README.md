@@ -1,9 +1,7 @@
 # My vim  
-* My vim configuration for Unix-like systems.
 
 
-## Installation  
-
+## Installation for Unix-like systems.
 * Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.
 * If you don't have a .vimrc file, it's just create a new one for you.
 * Removing second order backups: rm ~/.vimrc_backup_*
