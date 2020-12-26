@@ -25,6 +25,9 @@ set columns=numberOFcol
 " Change tabs per spaces
 :%s/\t/    /g
 
+" Deleting 2 first chars in all lines
+:'{,'}norm! 2x
+
 " FROM http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim
 " Comandos para alteração do texto
 
