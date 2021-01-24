@@ -3,8 +3,17 @@
 
 ## Installation for Unix-like systems.
 * Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.
-* If you don't have a .vimrc file, it's just create a new one for you.
-* Removing second order backups: rm ~/.vimrc_backup_*
+* If you don't have a .vimrc file, it just create a new one for you.
+* A english dictionary will be copied from 
+SCOWL (and friends) software (under a MIT-like license). See wordlist.aspell.net.  
+
+## Files
+```shell
+~/.vimrc
+~/.vimrc_backup_*
+~/.dic/en_US.dic
+```  
+
 
 ## Features and commands 
 
@@ -14,12 +23,7 @@
 * Each indentation level is one tab  
 * Do not change tab for spaces 
 * Equal size windows 
-* Dictionaries  
-```shell
-/usr/share/dict/american-english-insane  
-/usr/share/dict/brazilian  
-/usr/share/dict/words  
-```
+* English Dictionary completion  
 * F2 command : save the file  
 * F3 command : save and exit the file  
 * F12 command : force quit (exit without saving changes)  
@@ -48,4 +52,3 @@ for (i=0; i<n; i++)
 ```
   
 ## More commands and infos in the "man" file.  
-
