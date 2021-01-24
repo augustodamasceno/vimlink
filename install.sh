@@ -1,12 +1,13 @@
 #!/bin/bash
 
 ##
-#  This script is part of the VIMLINK software.
+#	This script is part of the VIMLINK software.
 #
-#  This script:
-#    Backup the .vimrc file.
-#    Copy the VIMLINK .vimrc file.
-#	 Download and install an english dictionary from SCOWL.
+#	This script:
+#		Backup the .vimrc file.
+#		Copy the VIMLINK .vimrc file.
+#		Download and install an english 
+#		  dictionary from Hunspell English Dictionaries.
 ##
 
 if (test -e ~/.vimrc_backup)
