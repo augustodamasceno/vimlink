@@ -3,9 +3,10 @@
 
 ## Installation for Unix-like systems.
 * Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.
-* If you don't have a .vimrc file, it just create a new one for you.
-* A english dictionary will be copied from 
-SCOWL (and friends) software (under a MIT-like license). See wordlist.aspell.net.  
+* If you don't have a .vimrc file, it just creates a new one for you.
+* An english dictionary will be copied from Hunspell English Dictionaries
+ (under a MIT-like license and BSD license for the affix file). 
+See http://wordlist.aspell.net/hunspell-readme/.  
 
 ## Files
 ```shell

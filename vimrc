@@ -1,6 +1,5 @@
-""" This file is part of Vimlink Vim Configuration.
-""" Se more at https://github.com/augustomatheuss/vimlink
-
+""" This file is part of Vimlink software (V2.0)
+""" See https://github.com/augustodamasceno/vimlink
 
 """ STRUCTURE AND APPEARANCE
 """ see line numbers
@@ -13,11 +12,8 @@ syntax on
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
 """ Equal size windows
 winc = 
-""" Dictionaries
-""" See https://packages.debian.org/jessie/wordlist
-set dictionary+=/usr/share/dict/american-english-insane
-set dictionary+=/usr/share/dict/brazilian
-set dictionary+=/usr/share/dict/words 
+""" English Dictionary
+set dictionary+=~/.dic/en_US.dic
 """ Colors legible for dark background
 set background=dark
 
