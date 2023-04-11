@@ -16,6 +16,8 @@ winc =
 set dictionary+=~/.dic/en_US.dic
 """ Colors legible for dark background
 set background=dark
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 """ COMMANDS TO SAVE OR QUIT
 """ F2 save
