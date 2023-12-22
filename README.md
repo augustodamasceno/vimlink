@@ -15,6 +15,15 @@ See http://wordlist.aspell.net/hunspell-readme/.
 ~/.dic/en_US.dic
 ```  
 
+## Dependency  
+* vim-plug  
+### Instalation in Unix-like
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+```
+> Open Vim and run :PlugInstall.
 
 ## Features and commands 
 
@@ -33,23 +42,9 @@ See http://wordlist.aspell.net/hunspell-readme/.
 * F7 command : convert tabs into 4 spaces  
 * Control + b command : change buffer files  
 * Control + i command : Indent all lines  
-* "cbody" command : write inside the file:  
-```c
-#include <stdlib.h>
-#include <stdio.h>
+* vim-scripts/vim-asm: Improves how assembly code looks in Vim with better colors and formatting   
+* dense-analysis/ale: Checks your code for errors as you type and suggests corrections  
+* majutsushi/tagbar: Shows an outline of your code (like functions and variables) in a sidebar, making it easier to navigate through the code.  
+* preservim/nerdtree: Adds a file explorer inside Vim, allowing you to browse and open files directly from the editor.  
 
-int main(int argc, char ** argv)
-{
-  return 0;
-} 
-```
-* "cfor" command : write inside the file:  
-```c
-for (i=0; i<n; i++)
-{
-
-}
-
-```
-  
 ## More commands and infos in the "man" file.  

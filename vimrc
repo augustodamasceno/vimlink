@@ -40,15 +40,14 @@ noremap <F8> :%s/\t/    /g<CR>
 noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
-""" C basic body code
-noremap cbody i<C-r>=system("echo \"#include <stdlib.h>\n
-\#include <stdio.h>\n\n
-\int main(int argc, char ** argv)\n
-\{\n
-\  return 0;\n
-\} \"")<CR><Esc><CR>
-""" C for loop
-noremap cfor i<C-r>=system("echo \"for (i=0; i<n; i++)\n
-\{\n\n
-\}\"")<CR><Esc><CR>
+
+""" PLUGINS
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-scripts/vim-asm'
+Plug 'dense-analysis/ale'
+Plug 'majutsushi/tagbar'
+Plug 'preservim/nerdtree'
+
+call plug#end()
 
