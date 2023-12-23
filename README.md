@@ -42,6 +42,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * F7 command : convert tabs into 4 spaces  
 * Control + b command : change buffer files  
 * Control + i command : Indent all lines  
+* Control + e command : Got to the next error  
 * vim-scripts/vim-asm: Adds support for assembly language syntax highlighting and features in Vim.  
 * dense-analysis/ale: ALE (Asynchronous Lint Engine) is a plugin for real-time syntax checking and linting.  
 * majutsushi/tagbar: Tagbar provides an overview of the structure of code files, displaying tags in a sidebar.  
