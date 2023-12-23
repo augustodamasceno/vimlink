@@ -1,4 +1,4 @@
-""" This file is part of Vimlink software (V2.0)
+""" This file is part of Vimlink software (V3.0)
 """ See https://github.com/augustodamasceno/vimlink
 
 """ STRUCTURE AND APPEARANCE
@@ -41,6 +41,25 @@ noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
 
+"""" Ale Pluging Configuration by Victor Mours (Ref x)
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
+let g:ale_lint_on_enter = 0
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+
+function! LinterStatus() abort
+	let l:counts = ale#statusline#Count(bufnr(''))    
+	let l:all_errors = l:counts.error + l:counts.style_error
+	let l:all_non_errors = l:counts.total - l:all_errors    
+	return l:counts.total == 0 ? 'OK' : printf(
+				        \   '%d⨉ %d⚠ ',
+						\   all_non_errors,
+						\   all_errors
+						\)
+endfunction
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+
 """ PLUGINS
 call plug#begin('~/.vim/plugged')
 
@@ -48,6 +67,10 @@ Plug 'vim-scripts/vim-asm'
 Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
 Plug 'preservim/nerdtree'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'itchyny/lightline.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
+let g:indent_guides_enable_on_vim_startup = 1

@@ -42,9 +42,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * F7 command : convert tabs into 4 spaces  
 * Control + b command : change buffer files  
 * Control + i command : Indent all lines  
-* vim-scripts/vim-asm: Improves how assembly code looks in Vim with better colors and formatting   
-* dense-analysis/ale: Checks your code for errors as you type and suggests corrections  
-* majutsushi/tagbar: Shows an outline of your code (like functions and variables) in a sidebar, making it easier to navigate through the code.  
-* preservim/nerdtree: Adds a file explorer inside Vim, allowing you to browse and open files directly from the editor.  
+* vim-scripts/vim-asm: Adds support for assembly language syntax highlighting and features in Vim.  
+* dense-analysis/ale: ALE (Asynchronous Lint Engine) is a plugin for real-time syntax checking and linting.  
+* majutsushi/tagbar: Tagbar provides an overview of the structure of code files, displaying tags in a sidebar.  
+* preservim/nerdtree: NERDTree is a file explorer tool that adds a navigable tree structure for files and directories.  
+* ycm-core/YouCompleteMe: YouCompleteMe is a fast, powerful code completion engine for Vim.  
+* itchyny/lightline.vim: Lightline is a lightweight status line/tabline for Vim, offering a visually appealing and informative status bar.  
+* nathanaelkane/vim-indent-guides: Vim Indent Guides visually displays text indentation levels with subtly highlighted guides.  
 
-## More commands and infos in the "man" file.  
+## Notes and references in the file [notes.md"](https://github.com/augustodamasceno/vimlink/blob/main/notes.md) 
