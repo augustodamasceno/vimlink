@@ -15,7 +15,7 @@ See http://wordlist.aspell.net/hunspell-readme/.
 ~/.dic/en_US.dic
 ```  
 
-## Dependency  
+## Dependencies  
 * vim-plug  
 ### Instalation in Unix-like
 ```bash
@@ -24,6 +24,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 ```
 > Open Vim and run :PlugInstall.
+* YouCompleteMe completions for several programming languages    
+> https://ycm-core.github.io/YouCompleteMe/#installation  
 
 ## Features and commands 
 
