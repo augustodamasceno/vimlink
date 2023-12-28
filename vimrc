@@ -74,3 +74,4 @@ Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 let g:indent_guides_enable_on_vim_startup = 1
+set laststatus=2
