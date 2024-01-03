@@ -1,4 +1,4 @@
-# My vim  
+# Vimlink - My Vim Configuration    
 
 > Copyright (c) 2015-2024, Augusto Damasceno.  
 > All rights reserved.   
