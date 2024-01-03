@@ -43,7 +43,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Equal size windows 
 * English Dictionary completion  
 * Commands  
-    * 'ctabs' : convert tabs into 4 spaces   
+    * 'ctabs' : convert tabs into 4 spaces  
+    * 'rbeg' <NUM-CHARS> <REPLACE-WITH> : Replace beginning characters of a selection 
     * Control + b : change buffer files   
     * Control + i : Indent all lines  
     * Control + e : Got to the next error  

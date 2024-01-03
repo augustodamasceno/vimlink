@@ -23,13 +23,19 @@ set background=dark
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-""" COMMANDS
+""" MAPPING COMMANDS
 """" Convert all tabs into 4 spaces
 noremap ctabs :%s/\t/    /g<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
+
+""" FUNCTIONS
+function! ReplaceBeginningChars(numChars, replaceWith)
+	    execute ":'<,'>s/^\\.\\{" . a:numChars . "}/" . a:replaceWith . "/"
+endfunction
+command! -nargs=+ rbeg call ReplaceBeginningChars(<f-args>)
 
 """" Ale Pluging Configuration by Victor Mours (Reference 4 in notes.md)
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
