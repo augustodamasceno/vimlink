@@ -190,6 +190,6 @@ sort lines 296 to 349, inclusive
 * 2. http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim  
 * 3. http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_2)  
 * 4. http://www.thegeekstuff.com/2009/01/vi-and-vim-editor-5-awesome-examples-for-automatic-word-completion-using-ctrl-x-magic/
-* [Better linting in Vim with Ale by Victor Mours]( https://medium.com/@victormours/better-linting-in-vim-with-ale-1e4b1d5789af)  
-* 5. https://github.com/victormours/dotfiles
+* 5. [Better linting in Vim with Ale by Victor Mours]( https://medium.com/@victormours/better-linting-in-vim-with-ale-1e4b1d5789af)  
+* 6. https://github.com/victormours/dotfiles
 
