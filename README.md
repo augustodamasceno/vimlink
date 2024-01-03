@@ -60,8 +60,9 @@ pkg install ctags
     * 'Rbeg' \<NUM-CHARS\> \<REPLACE-WITH\> : Replace beginning characters of a selection 
     * 'tags' : Show/Hide Tags  
     * Control + b : change buffer files   
-    * Control + i : Indent all lines  
     * Control + e : Got to the next error  
+    * Control + i : Indent all lines  
+    * Control + t : Open NERDTree file explorer   
 * Plugins
     * vim-scripts/vim-asm: Adds support for assembly language syntax highlighting and features in Vim.  
     * dense-analysis/ale: ALE (Asynchronous Lint Engine) is a plugin for real-time syntax checking and linting.  

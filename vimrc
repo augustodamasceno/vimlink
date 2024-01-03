@@ -26,14 +26,16 @@ set backspace=indent,eol,start
 """ MAPPING COMMANDS
 """" Convert all tabs into 4 spaces
 noremap ctabs :%s/\t/    /g<CR>
+""" Show/Hide Tagbar window
+noremap tags :TagbarToggle<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
-""" Show/Hide Tagbar window
-noremap tags :TagbarToggle<CR>
+""" NERDTree file explorer
+noremap <C-t> :NERDTree<CR>
 
-""" FUNCTIONS
+""" FUNCTIONS AND RELATED COMMANDS
 function! ReplaceBeginningChars(numChars, newText) range
 	let l:pattern = '^.\{' . a:numChars . '}\ze'
 	execute a:firstline . ',' . a:lastline . 's/' . l:pattern . '/' . a:newText . '/'
