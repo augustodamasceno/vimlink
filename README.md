@@ -32,6 +32,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 > Open Vim and run :PlugInstall.
 * YouCompleteMe completions for several programming languages    
 > https://ycm-core.github.io/YouCompleteMe/#installation  
+* Exuberant Ctags
+```bash
+# Debian
+apt-get install exuberant-ctags
+# Arch Linux
+pacman -S ctags
+# Fedora
+dnf install ctags
+# MacOS
+brew install ctags
+# FreeBSD
+pkg install ctags
+```
 
 ## Features and commands 
 
@@ -45,6 +58,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Commands  
     * 'ctabs' : convert tabs into 4 spaces  
     * 'Rbeg' \<NUM-CHARS\> \<REPLACE-WITH\> : Replace beginning characters of a selection 
+    * 'tags' : Show/Hide Tags  
     * Control + b : change buffer files   
     * Control + i : Indent all lines  
     * Control + e : Got to the next error  

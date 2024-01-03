@@ -30,6 +30,8 @@ noremap ctabs :%s/\t/    /g<CR>
 noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
+""" Show/Hide Tagbar window
+noremap tags :TagbarToggle<CR>
 
 """ FUNCTIONS
 function! ReplaceBeginningChars(numChars, newText) range
