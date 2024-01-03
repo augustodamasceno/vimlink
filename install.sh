@@ -4,15 +4,16 @@
 #	This script is part of the VIMLINK software.
 #
 #	This script:
+#	    Backup previous backup
 #		Backup the .vimrc file.
-#		Copy the VIMLINK .vimrc file.
+#		Copy the VIMLINK .vimrc file to $HOME/.vimrc
 #		Download and install an english 
 #		  dictionary from Hunspell English Dictionaries.
 ##
 
 if (test -e ~/.vimrc_backup)
 then
-	echo "Making a backup of the previous backup folder"
+	echo "Making a backup of the previous backup"
 	mv ~/.vimrc_backup ~/.vimrc_backup_movein$(date +"%d%h%y_%H-%M-%S")
 fi
 
