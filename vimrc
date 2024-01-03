@@ -12,7 +12,7 @@ set number
 syntax on
 """ Tabs are four columns wide
 """ Each indentation level is one tab
-""" expandtab change tab for spaces
+""" Don't change tab for spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
 """ Equal size windows
 winc = 
