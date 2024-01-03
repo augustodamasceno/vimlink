@@ -19,23 +19,9 @@ set background=dark
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-""" COMMANDS TO SAVE OR QUIT
-""" F2 save
-noremap <F2> :w<CR>
-""" F3 save and exit
-noremap <F3> :wq<CR>
-""" F12 force quit
-noremap <F12> :q!<CR>
-
-""" PROGRAMMING COMMANDS
-""" F5 runs "make && make clean && make run"
-noremap <F5> :!make && make clean && make run<CR>
-""" F6 runs python with the current file
-noremap <F6> :!python %<CR>
-""" F7 Convert tabs into 4 spaces
-noremap <F8> :%s/\t/    /g<CR>
-
-""" TEXT EDITION COMMANDS
+""" COMMANDS
+"""" Convert all tabs into 4 spaces
+noremap ctabs :%s/\t/    /g<CR>
 """ Switch buffer files
 noremap <C-b> :bn<CR>
 """ Indent All Lines
