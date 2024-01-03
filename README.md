@@ -1,5 +1,11 @@
 # My vim  
 
+> Copyright (c) 2015-2024, Augusto Damasceno.  
+> All rights reserved.   
+> SPDX-License-Identifier: BSD-2-Clause
+
+## Contact
+> [augustodamasceno@protonmail.com](mailto:augustodamasceno@protonmail.com)
 
 ## Installation for Unix-like systems.
 * Run "install.sh" will backup your .vimrc file and copy the .vimrc file of this repository.

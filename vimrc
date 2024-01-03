@@ -1,5 +1,9 @@
-""" This file is part of Vimlink software (V3.0)
-""" See https://github.com/augustodamasceno/vimlink
+""" Vimlink .vimrc
+"""
+""" Copyright (c) 2015-2024, Augusto Damasceno.
+""" All rights reserved.
+""" 
+""" SPDX-License-Identifier: BSD-2-Clause
 
 """ STRUCTURE AND APPEARANCE
 """ see line numbers
@@ -27,7 +31,7 @@ noremap <C-b> :bn<CR>
 """ Indent All Lines
 noremap <C-i> gg=G
 
-"""" Ale Pluging Configuration by Victor Mours (Ref x)
+"""" Ale Pluging Configuration by Victor Mours (Reference 4 in notes.md)
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
 let g:ale_lint_on_enter = 0
 let g:ale_sign_error = '●'

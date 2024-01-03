@@ -1,15 +1,17 @@
 #!/bin/bash
-
-##
-#	This script is part of the VIMLINK software.
+# Vimlink .vimrc
 #
-#	This script:
-#	    Backup previous backup
-#		Backup the .vimrc file.
-#		Copy the VIMLINK .vimrc file to $HOME/.vimrc
-#		Download and install an english 
-#		  dictionary from Hunspell English Dictionaries.
-##
+# Copyright (c) 2015-2024, Augusto Damasceno.
+# All rights reserved.
+# 
+# SPDX-License-Identifier: BSD-2-Clause
+#
+#  This script:
+#    Backup previous backup
+#    Backup the .vimrc file.
+#    Copy the VIMLINK .vimrc file to $HOME/.vimrc
+#    Download and install an english 
+#      dictionary from Hunspell English Dictionaries.
 
 if (test -e ~/.vimrc_backup)
 then

@@ -1,3 +1,8 @@
+# Vimlink Notes  
+> Copyright (c) 2015-2024, Augusto Damasceno.  
+> All rights reserved.  
+> SPDX-License-Identifier: BSD-2-Clause  
+
 # Cheat Sheet by ChatGPT 4.0
 > Prompt: Could you provide a Vim cheat sheet covering essential commands for navigation
 >    , editing, searching, and general file management?
@@ -181,10 +186,10 @@ sort lines 296 to 349, inclusive
 
 
 # References 
-* https://www.vim.org/  
-* http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim  
-* http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_2)  
-* http://www.thegeekstuff.com/2009/01/vi-and-vim-editor-5-awesome-examples-for-automatic-word-completion-using-ctrl-x-magic/
+* 1. https://www.vim.org/  
+* 2. http://www.vivaolinux.com.br/dica/Editor-Vim-Introducao-e-trabalhando-com-Vim  
+* 3. http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_2)  
+* 4. http://www.thegeekstuff.com/2009/01/vi-and-vim-editor-5-awesome-examples-for-automatic-word-completion-using-ctrl-x-magic/
 * [Better linting in Vim with Ale by Victor Mours]( https://medium.com/@victormours/better-linting-in-vim-with-ale-1e4b1d5789af)  
-* https://github.com/victormours/dotfiles
+* 5. https://github.com/victormours/dotfiles
 
