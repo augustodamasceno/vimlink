@@ -32,10 +32,12 @@ noremap <C-b> :bn<CR>
 noremap <C-i> gg=G
 
 """ FUNCTIONS
-function! ReplaceBeginningChars(numChars, replaceWith)
-	    execute ":'<,'>s/^\\.\\{" . a:numChars . "}/" . a:replaceWith . "/"
+function! ReplaceBeginningChars(numChars, newText) range
+	let l:pattern = '^.\{' . a:numChars . '}\ze'
+	execute a:firstline . ',' . a:lastline . 's/' . l:pattern . '/' . a:newText . '/'
 endfunction
-command! -nargs=+ rbeg call ReplaceBeginningChars(<f-args>)
+
+command! -nargs=+ -range=% Rbeg :<line1>,<line2>call ReplaceBeginningChars(<f-args>)
 
 """" Ale Pluging Configuration by Victor Mours (Reference 4 in notes.md)
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
