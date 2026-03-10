@@ -151,7 +151,6 @@ if ! vim --version 2>/dev/null | grep -q '+python3'; then
 	fi
 	echo ">>> Vim with Python 3 support installed successfully."
 fi
-fi
 
 # Required tools — auto-install if missing
 require_tool wget   wget   wget   wget   "wget (download tool)"
