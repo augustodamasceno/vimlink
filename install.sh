@@ -156,13 +156,9 @@ fi
 require_tool wget   wget   wget   wget   "wget (download tool)"
 require_tool unzip  unzip  unzip  unzip  "unzip"
 require_tool python3 python3 python3 python3 "Python 3"
-
-# YCM build deps — only needed when SKIP_YCM_BUILD is not set
-if [ -z "${SKIP_YCM_BUILD:-}" ]; then
-	require_tool python3 python3-dev python3-dev python3-devel "Python 3 development headers (python3-dev)"
-	require_tool cmake   cmake   cmake  cmake  "CMake (required to build YouCompleteMe)"
-	require_tool g++     build-essential g++  gcc  "C++ compiler (required to build YouCompleteMe)"
-fi
+require_tool python3 python3-dev python3-dev python3-devel "Python 3 development headers (python3-dev)"
+require_tool cmake   cmake   cmake  cmake  "CMake (required to build YouCompleteMe)"
+require_tool g++     build-essential g++  gcc  "C++ compiler (required to build YouCompleteMe)"
 
 # Re-detect downloader now that wget/curl is confirmed available
 DOWNLOADER=""
@@ -216,11 +212,7 @@ vim +PlugInstall +qall
 
 # Build YouCompleteMe with C, C++ (clangd) and Python support.
 YCM_DIR="$HOME/.vim/plugged/YouCompleteMe"
-if [ -n "${SKIP_YCM_BUILD:-}" ]; then
-	echo "Skipping YouCompleteMe build (SKIP_YCM_BUILD is set)."
-	echo "To build manually run:"
-	echo "  python3 ~/.vim/plugged/YouCompleteMe/install.py --clangd-completer"
-elif [ -d "$YCM_DIR" ]; then
+if [ -d "$YCM_DIR" ]; then
 	if [ -n "$PYTHON3_BIN" ] && [ -x "$PYTHON3_BIN" ]; then
 		echo "Building YouCompleteMe (Python: $PYTHON3_BIN)..."
 		"$PYTHON3_BIN" "$YCM_DIR/install.py" --clangd-completer
