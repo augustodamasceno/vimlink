@@ -1,6 +1,6 @@
 """ Vimlink .vimrc
 """
-""" Copyright (c) 2015-2024, Augusto Damasceno.
+""" Copyright (c) 2015-2026, Augusto Damasceno.
 """ All rights reserved.
 """ 
 """ SPDX-License-Identifier: BSD-2-Clause
@@ -43,6 +43,13 @@ endfunction
 
 command! -nargs=+ -range=% Rbeg :<line1>,<line2>call ReplaceBeginningChars(<f-args>)
 
+""" Toggle YouCompleteMe on/off
+command! Ycmoff if get(g:, 'ycm_auto_trigger', 1) |
+            \     let g:ycm_auto_trigger = 0 | echo "YCM disabled" |
+            \ else |
+            \     let g:ycm_auto_trigger = 1 | echo "YCM enabled" |
+            \ endif
+
 """" Ale Pluging Configuration by Victor Mours (Reference 4 in notes.md)
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
 let g:ale_lint_on_enter = 0
@@ -63,6 +70,8 @@ set statusline+=%=
 set statusline+=\ %{LinterStatus()}
 
 """ PLUGINS
+" Resolve Python 3 path at startup so YCM always finds the correct interpreter
+let g:ycm_server_python_interpreter = exepath('python3')
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/vim-asm'

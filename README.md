@@ -22,29 +22,22 @@ See http://wordlist.aspell.net/hunspell-readme/.
 ```  
 
 ## Dependencies  
-* vim-plug  
-### Instalation in Unix-like
-```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-```
-> Open Vim and run :PlugInstall.
-* YouCompleteMe completions for several programming languages    
-> https://ycm-core.github.io/YouCompleteMe/#installation  
-* Exuberant Ctags
-```bash
-# Debian
-apt-get install exuberant-ctags
-# Arch Linux
-pacman -S ctags
-# Fedora
-dnf install ctags
-# MacOS
-brew install ctags
-# FreeBSD
-pkg install ctags
-```
+`install.sh` automatically installs all dependencies listed below. For manual installation instructions of any individual package, see [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md).
+
+| Dependency | Description |
+|---|---|
+| **vim-nox** | Vim build compiled with Python 3 support, required by YouCompleteMe |
+| **wget** | Downloads vim-plug and the English dictionary |
+| **unzip** | Extracts the downloaded dictionary archive |
+| **python3** | Runtime for YouCompleteMe and its build system |
+| **python3-dev** | Python 3 C headers needed to compile the YouCompleteMe native extension |
+| **cmake** | Build system used to compile the ycmd server |
+| **build-essential** | GCC/G++ compiler and make, required to build ycmd |
+| **clangd** | Language server providing C and C++ completions via YouCompleteMe |
+| **Exuberant Ctags** | Generates tag files for code navigation (`:tags` command) |
+| **vim-plug** | Vim plugin manager, fetches and manages all Vim plugins |
+| **YouCompleteMe** | Fast code completion engine for C, C++ and Python |
 
 ## Features and commands 
 
@@ -55,12 +48,17 @@ pkg install ctags
 * Do not change tab for spaces 
 * Equal size windows 
 * English Dictionary completion  
+* Colors optimized for dark background  
+* Backspace works over indentation, line breaks and insert start  
+* Linter status shown in the status line (errors and warnings count)  
+* ALE lints on save, not on buffer enter  
 * Commands  
-    * 'ctabs' : convert tabs into 4 spaces  
-    * 'Rbeg' \<NUM-CHARS\> \<REPLACE-WITH\> : Replace beginning characters of a selection 
-    * 'tags' : Show/Hide Tags  
+    * `ctabs` : convert tabs into 4 spaces  
+    * `Rbeg` \<NUM-CHARS\> \<REPLACE-WITH\> : Replace beginning characters of a selection 
+    * `tags` : Show/Hide Tags  
+    * `Ycmoff` : Enable/Disable YouCompleteMe  
     * Control + b : change buffer files   
-    * Control + e : Got to the next error  
+    * Control + e : Go to the next error  
     * Control + i : Indent all lines  
     * Control + t : Open NERDTree file explorer   
 * Plugins
@@ -72,4 +70,4 @@ pkg install ctags
     * itchyny/lightline.vim: Lightline is a lightweight status line/tabline for Vim, offering a visually appealing and informative status bar.  
     * nathanaelkane/vim-indent-guides: Vim Indent Guides visually displays text indentation levels with subtly highlighted guides.  
 
-## Notes and references in the file [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md) 
+## Cheat Sheets and references in the file [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md) 

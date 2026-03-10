@@ -1,7 +1,214 @@
 # Vimlink Notes  
-> Copyright (c) 2015-2024, Augusto Damasceno.  
+> Copyright (c) 2015-2026, Augusto Damasceno.  
 > All rights reserved.  
 > SPDX-License-Identifier: BSD-2-Clause  
+
+# Manual Installation
+
+## vim (with Python 3 support)
+```bash
+# Debian/Ubuntu — vim-nox includes Python 3 support
+sudo apt install vim-nox
+# Fedora/RHEL
+sudo dnf install vim
+# Arch Linux
+sudo pacman -S vim
+# macOS
+brew install vim
+# FreeBSD
+sudo pkg install vim
+```
+
+## wget
+```bash
+# Debian/Ubuntu
+sudo apt install wget
+# Fedora/RHEL
+sudo dnf install wget
+# Arch Linux
+sudo pacman -S wget
+# macOS
+brew install wget
+# FreeBSD
+sudo pkg install wget
+```
+
+## unzip
+```bash
+# Debian/Ubuntu
+sudo apt install unzip
+# Fedora/RHEL
+sudo dnf install unzip
+# Arch Linux
+sudo pacman -S unzip
+# macOS
+brew install unzip
+# FreeBSD
+sudo pkg install unzip
+```
+
+## Python 3 + development headers
+```bash
+# Debian/Ubuntu
+sudo apt install python3 python3-dev
+# Fedora/RHEL
+sudo dnf install python3 python3-devel
+# Arch Linux
+sudo pacman -S python
+# macOS
+brew install python3
+# FreeBSD
+sudo pkg install python3
+```
+
+## CMake
+```bash
+# Debian/Ubuntu
+sudo apt install cmake
+# Fedora/RHEL
+sudo dnf install cmake
+# Arch Linux
+sudo pacman -S cmake
+# macOS
+brew install cmake
+# FreeBSD
+sudo pkg install cmake
+```
+
+## C++ compiler
+```bash
+# Debian/Ubuntu
+sudo apt install build-essential
+# Fedora/RHEL
+sudo dnf install gcc-c++
+# Arch Linux
+sudo pacman -S gcc
+# macOS
+brew install gcc   # or: xcode-select --install
+# FreeBSD
+sudo pkg install gcc
+```
+
+## vim-plug
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+> Then open Vim and run `:PlugInstall`.
+
+## YouCompleteMe (C, C++ and Python)
+```bash
+# After :PlugInstall has run:
+python3 ~/.vim/plugged/YouCompleteMe/install.py --clangd-completer
+```
+> Requires python3, python3-dev, cmake, build-essential and clangd to be installed first.
+
+## Exuberant Ctags
+```bash
+# Debian/Ubuntu
+sudo apt install exuberant-ctags
+# Fedora/RHEL
+sudo dnf install ctags
+# Arch Linux
+sudo pacman -S ctags
+# macOS
+brew install ctags
+# FreeBSD
+sudo pkg install ctags
+```
+
+# Cheat Sheet by Claude Sonnet 4.6
+> Prompt: Could you provide a Vim cheat sheet covering essential commands for navigation, editing, searching, and general file management?
+```
+Vim Cheat Sheet
+
+Navigation
+    h, j, k, l      Move left, down, up, right
+    0                Start of the line
+    ^                First non-blank character of the line
+    $                End of the line
+    gg               Start of the document
+    G                End of the document
+    :<n>             Go to line n
+    Ctrl+u           Half-page up
+    Ctrl+d           Half-page down
+    Ctrl+f           Page down
+    Ctrl+b           Page up
+    w                Next word
+    b                Previous word
+    %                Jump to matching bracket
+
+Editing
+    i                Insert mode at cursor
+    a                Insert mode after cursor
+    o                Open a new line below and enter insert mode
+    O                Open a new line above and enter insert mode
+    cw               Change word
+    ciw              Change inner word
+    cc               Change entire line
+    dd               Delete line
+    dw               Delete word
+    D                Delete to end of line
+    yy               Yank (copy) line
+    yw               Yank word
+    p                Paste after cursor
+    P                Paste before cursor
+    x                Delete character at cursor
+    r                Replace single character
+    u                Undo
+    Ctrl+r           Redo
+    .                Repeat last change
+    >>               Indent line
+    <<               Unindent line
+
+Visual Mode
+    v                Character visual mode
+    V                Line visual mode
+    Ctrl+v           Block visual mode
+    y                Yank selection
+    d                Delete selection
+    >                Indent selection
+    <                Unindent selection
+
+Searching
+    /keyword         Search forward for keyword
+    ?keyword         Search backward for keyword
+    n                Next occurrence
+    N                Previous occurrence
+    *                Search for word under cursor (forward)
+    #                Search for word under cursor (backward)
+    :%s/old/new/g    Replace all occurrences of old with new
+    :%s/old/new/gc   Replace all with confirmation
+
+File Management
+    :w               Save file
+    :q               Quit Vim
+    :wq  or  :x      Save and quit
+    :q!              Quit without saving
+    :e <file>        Open file for editing
+    :bn              Next buffer
+    :bp              Previous buffer
+    :ls              List open buffers
+    :tabnew <file>   Open file in a new tab
+    gt               Next tab
+    gT               Previous tab
+
+Windows / Splits
+    :sp <file>       Horizontal split
+    :vsp <file>      Vertical split
+    Ctrl+w h/j/k/l   Move between splits
+    Ctrl+w =         Equal size windows
+    Ctrl+w q         Close split
+
+Miscellaneous
+    :help <keyword>  Get help
+    :set number      Show line numbers
+    :set paste       Toggle paste mode
+    Ctrl+g           Show filename and position
+    ga               Show ASCII value of character under cursor
+    :!<cmd>          Run shell command
+    :shell           Open a shell session (close with exit)
+```
 
 # Cheat Sheet by ChatGPT 4.0
 > Prompt: Could you provide a Vim cheat sheet covering essential commands for navigation
