@@ -102,46 +102,68 @@ require_tool() {
 	fi
 }
 
-# vim (must be pre-installed; the script cannot install and re-exec itself)
+# vim (must be present; if missing try to install it)
 if ! command -v vim &>/dev/null; then
-	echo "ERROR: vim is not installed."
-	echo "Please install vim before running this script."
-	echo ""
-	case "$OS" in
-		Linux)
-			echo "  Debian/Ubuntu: sudo apt install vim-nox"
-			echo "  Fedora/RHEL:   sudo dnf install vim"
-			echo "  Arch Linux:    sudo pacman -S vim"
-			;;
-		Darwin) echo "  macOS: brew install vim" ;;
-		FreeBSD) echo "  FreeBSD: sudo pkg install vim" ;;
-	esac
-	exit 1
+	echo ">>> vim not found. Attempting to install..."
+	if pkg_install vim-nox vim vim; then
+		if ! command -v vim &>/dev/null; then
+			echo "ERROR: vim still not found after install attempt."
+			echo "Please install vim manually and re-run install.sh."
+			exit 1
+		fi
+		echo ">>> vim installed successfully."
+	else
+		echo "ERROR: Could not install vim automatically."
+		echo "Please install vim manually and re-run install.sh."
+		exit 1
+	fi
 fi
 
-# Vim must have +python3 support (vim-nox on Debian/Ubuntu)
+# Vim must have +python3 support (vim-nox on Debian/Ubuntu, brew vim on macOS)
 if ! vim --version 2>/dev/null | grep -q '+python3'; then
-	echo "ERROR: Vim is not compiled with Python 3 support (required by YouCompleteMe)."
-	echo ""
+	echo ">>> Vim lacks Python 3 support. Attempting to install the correct build..."
 	case "$OS" in
 		Linux)
-			echo "  Debian/Ubuntu: sudo apt install vim-nox"
-			echo "  Fedora/RHEL:   vim already includes Python 3"
-			echo "  Arch Linux:    vim already includes Python 3"
+			if command -v apt-get &>/dev/null; then
+				sudo apt-get install -y vim-nox
+			elif command -v dnf &>/dev/null; then
+				sudo dnf install -y vim
+			elif command -v pacman &>/dev/null; then
+				sudo pacman -S --noconfirm vim
+			fi
 			;;
-		Darwin) echo "  macOS: brew install vim" ;;
-		FreeBSD) echo "  FreeBSD: sudo pkg install vim" ;;
+		Darwin)
+			if command -v brew &>/dev/null; then
+				brew install vim
+			fi
+			;;
+		FreeBSD)
+			sudo pkg install -y vim
+			;;
 	esac
-	exit 1
+	if ! vim --version 2>/dev/null | grep -q '+python3'; then
+		echo "ERROR: Vim still lacks Python 3 support after install attempt."
+		echo "Please install a Vim build with Python 3 support manually:"
+		echo "  Debian/Ubuntu: sudo apt install vim-nox"
+		echo "  macOS:         brew install vim"
+		echo "  FreeBSD:       sudo pkg install vim"
+		exit 1
+	fi
+	echo ">>> Vim with Python 3 support installed successfully."
+fi
 fi
 
 # Required tools — auto-install if missing
 require_tool wget   wget   wget   wget   "wget (download tool)"
 require_tool unzip  unzip  unzip  unzip  "unzip"
 require_tool python3 python3 python3 python3 "Python 3"
-require_tool python3 python3-dev python3-dev python3-devel "Python 3 development headers (python3-dev)"
-require_tool cmake   cmake   cmake  cmake  "CMake (required to build YouCompleteMe)"
-require_tool g++     build-essential g++  gcc  "C++ compiler (required to build YouCompleteMe)"
+
+# YCM build deps — only needed when SKIP_YCM_BUILD is not set
+if [ -z "${SKIP_YCM_BUILD:-}" ]; then
+	require_tool python3 python3-dev python3-dev python3-devel "Python 3 development headers (python3-dev)"
+	require_tool cmake   cmake   cmake  cmake  "CMake (required to build YouCompleteMe)"
+	require_tool g++     build-essential g++  gcc  "C++ compiler (required to build YouCompleteMe)"
+fi
 
 # Re-detect downloader now that wget/curl is confirmed available
 DOWNLOADER=""
@@ -195,7 +217,11 @@ vim +PlugInstall +qall
 
 # Build YouCompleteMe with C, C++ (clangd) and Python support.
 YCM_DIR="$HOME/.vim/plugged/YouCompleteMe"
-if [ -d "$YCM_DIR" ]; then
+if [ -n "${SKIP_YCM_BUILD:-}" ]; then
+	echo "Skipping YouCompleteMe build (SKIP_YCM_BUILD is set)."
+	echo "To build manually run:"
+	echo "  python3 ~/.vim/plugged/YouCompleteMe/install.py --clangd-completer"
+elif [ -d "$YCM_DIR" ]; then
 	if [ -n "$PYTHON3_BIN" ] && [ -x "$PYTHON3_BIN" ]; then
 		echo "Building YouCompleteMe (Python: $PYTHON3_BIN)..."
 		"$PYTHON3_BIN" "$YCM_DIR/install.py" --clangd-completer
