@@ -131,15 +131,19 @@ bash install.sh --neovim
 * Dark background optimised colours  
 * English dictionary word completion (`<C-x><C-k>`)  
 * LSP-powered completions, diagnostics and formatting (clangd, pyright, cmake-language-server)  
-* Format on save (clang-format for C/C++, black for Python)  
+* Format on save (clang-format for C/C++, black for Python, stylua for Lua)  
 * Git signs in the gutter (added / changed / removed hunks)  
 * Automatic bracket and quote pairing  
 * Visual indent guides  
+* True-colour terminal rendering  
+* DAP UI opens and closes automatically with debug sessions  
 * Commands  
     * `Ctabs` : convert tabs to 4 spaces  
     * `<C-b>` : next buffer  
     * `<C-e>` : go to next diagnostic  
     * `<C-i>` : re-indent all lines  
+    * `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` : window navigation (left / down / up / right)  
+    * `CMakeBuild` / `CMakeRun` / `CMakeDebug` / `CMakeClean` / `CMakeGenerate` : cmake-tools build, run, debug, clean, generate  
 * Keymaps (leader key: `<Space>`)  
     * `<leader>ff` : find files (Telescope)  
     * `<leader>fg` : live grep (Telescope)  
@@ -164,6 +168,10 @@ bash install.sh --neovim
     * `<leader>gu` : undo staged hunk (Gitsigns)  
     * `<leader>gp` : preview hunk (Gitsigns)  
     * `<leader>gb` : blame line (Gitsigns)  
+    * `]c` / `[c` : next / previous git hunk (Gitsigns)  
+    * `<C-Space>` : trigger completion  
+    * `<CR>` : confirm completion  
+    * `<Tab>` / `<S-Tab>` : next / previous completion item  
     * `gd` : go to definition (LSP)  
     * `gD` : go to declaration (LSP)  
     * `gr` : go to references (LSP)  
@@ -172,14 +180,22 @@ bash install.sh --neovim
     * `-`  : open Oil file manager  
     * `<M-CR>` : accept Copilot suggestion  
     * `<M-]>` / `<M-[>` : next / previous Copilot suggestion  
+    * `<C-]>` : dismiss Copilot suggestion  
 * Plugins  
     * **folke/lazy.nvim**: Fast, feature-rich plugin manager for Neovim.  
+    * **nvim-lua/plenary.nvim**: Lua utility library required by Telescope, Harpoon, and cmake-tools.  
+    * **nvim-tree/nvim-web-devicons**: File-type icon support used by lualine and Oil.  
     * **nvim-treesitter/nvim-treesitter**: Incremental parsing for accurate syntax highlighting and code analysis.  
     * **neovim/nvim-lspconfig**: Pre-configured LSP client setup for common language servers.  
     * **hrsh7th/nvim-cmp**: Completion engine with LSP, buffer, and path sources.  
+    * **hrsh7th/cmp-nvim-lsp**: LSP completion source for nvim-cmp.  
+    * **hrsh7th/cmp-buffer**: Buffer text completion source for nvim-cmp.  
+    * **hrsh7th/cmp-path**: Filesystem path completion source for nvim-cmp.  
+    * **hrsh7th/cmp-nvim-lsp-signature-help**: Signature-help source for nvim-cmp.  
     * **p00f/clangd_extensions.nvim**: Enhanced clangd features (inlay hints, type hierarchy).  
     * **mfussenegger/nvim-dap**: Debug Adapter Protocol client for interactive debugging.  
     * **rcarriga/nvim-dap-ui**: Graphical UI panels for nvim-dap (variables, watches, call stack).  
+    * **nvim-neotest/nvim-nio**: Async I/O library required by nvim-dap-ui.  
     * **stevearc/oil.nvim**: File manager that lets you edit directories like text buffers.  
     * **ThePrimeagen/harpoon**: Quick-access bookmarks for up to four frequently used files.  
     * **Civitasv/cmake-tools.nvim**: CMake workflow integration — build, run, debug from Neovim.  
