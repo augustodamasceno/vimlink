@@ -117,6 +117,143 @@ brew install ctags
 sudo pkg install ctags
 ```
 
+---
+
+# Neovim Manual Installation
+
+## neovim (>= 0.10)
+```bash
+# Debian/Ubuntu
+sudo apt install neovim
+# Fedora/RHEL
+sudo dnf install neovim
+# Arch Linux
+sudo pacman -S neovim
+# macOS
+brew install neovim
+# FreeBSD
+sudo pkg install neovim
+```
+
+## git (required by lazy.nvim)
+```bash
+# Debian/Ubuntu
+sudo apt install git
+# Fedora/RHEL
+sudo dnf install git
+# Arch Linux
+sudo pacman -S git
+# macOS
+brew install git
+# FreeBSD
+sudo pkg install git
+```
+
+## Node.js (required by Copilot plugin)
+```bash
+# Debian/Ubuntu
+sudo apt install nodejs
+# Fedora/RHEL
+sudo dnf install nodejs
+# Arch Linux
+sudo pacman -S nodejs
+# macOS
+brew install node
+# FreeBSD
+sudo pkg install node
+```
+
+## ripgrep (required by Telescope live_grep)
+```bash
+# Debian/Ubuntu
+sudo apt install ripgrep
+# Fedora/RHEL
+sudo dnf install ripgrep
+# Arch Linux
+sudo pacman -S ripgrep
+# macOS
+brew install ripgrep
+# FreeBSD
+sudo pkg install ripgrep
+```
+
+## clangd (C/C++ language server)
+```bash
+# Debian/Ubuntu
+sudo apt install clangd
+# Fedora/RHEL
+sudo dnf install clang-tools-extra
+# Arch Linux
+sudo pacman -S clang
+# macOS
+brew install llvm
+# FreeBSD
+sudo pkg install llvm
+```
+
+## pyright (Python language server)
+```bash
+pip install pyright
+# or, with pipx:
+pipx install pyright
+```
+
+## cmake-language-server (CMake LSP)
+```bash
+pip install cmake-language-server
+```
+
+## black (Python formatter)
+```bash
+pip install black
+# or, with pipx:
+pipx install black
+```
+
+## debugpy (Python debug adapter for nvim-dap)
+```bash
+pip install debugpy
+```
+
+## clang-format (C/C++ formatter)
+```bash
+# Debian/Ubuntu
+sudo apt install clang-format
+# Fedora/RHEL
+sudo dnf install clang-tools-extra
+# Arch Linux
+sudo pacman -S clang
+# macOS
+brew install clang-format
+```
+
+## gdb (C/C++ debugger for nvim-dap)
+```bash
+# Debian/Ubuntu
+sudo apt install gdb
+# Fedora/RHEL
+sudo dnf install gdb
+# Arch Linux
+sudo pacman -S gdb
+# macOS
+brew install gdb
+# FreeBSD
+sudo pkg install gdb
+```
+
+## lazy.nvim (plugin manager — auto-bootstrapped)
+> lazy.nvim is cloned automatically on the first `nvim` launch via the
+> bootstrap block in `~/.config/nvim/init.lua`. No manual step required.
+> To trigger it manually:
+```bash
+git clone --filter=blob:none --branch=stable \
+  https://github.com/folke/lazy.nvim.git \
+  ~/.local/share/nvim/lazy/lazy.nvim
+```
+> Then open Neovim and run `:Lazy sync`.
+
+---
+
 # Cheat Sheet by Claude Sonnet 4.6
 > Prompt: Could you provide a Vim cheat sheet covering essential commands for navigation, editing, searching, and general file management?
 ```
@@ -264,6 +401,113 @@ Miscellaneous
     Ctrl+r: Redo.
     v: Visual mode.
     :help [keyword]: Get help for [keyword].
+```
+
+# Neovim Cheat Sheet
+```
+Neovim Cheat Sheet  (leader key: <Space>)
+
+Navigation
+    h, j, k, l      Move left, down, up, right
+    0                Start of the line
+    ^                First non-blank character of the line
+    $                End of the line
+    gg               Start of the document
+    G                End of the document
+    :<n>             Go to line n
+    Ctrl+u           Half-page up
+    Ctrl+d           Half-page down
+    Ctrl+f           Page down
+    Ctrl+b           Page up  (also: next buffer in vimlink)
+    w / b            Next / previous word
+    %                Jump to matching bracket
+
+Windows
+    Ctrl+h/j/k/l     Move between splits
+    :sp <file>       Horizontal split
+    :vsp <file>      Vertical split
+
+LSP
+    gd               Go to definition
+    gD               Go to declaration
+    gr               Go to references
+    gi               Go to implementation
+    K                Hover documentation
+    <leader>rn       Rename symbol
+    <leader>ca       Code action
+    <leader>f        Format buffer
+    Ctrl+e           Go to next diagnostic
+
+Completion (nvim-cmp)
+    Ctrl+Space       Trigger completion
+    Tab / Shift+Tab  Next / previous item
+    Enter            Confirm selection
+    Ctrl+e           Abort completion
+
+Telescope (fuzzy finder)
+    <leader>ff       Find files
+    <leader>fg       Live grep (requires ripgrep)
+    <leader>fb       Browse open buffers
+    <leader>fh       Search help tags
+    <leader>fd       Search diagnostics
+
+Trouble (diagnostics list)
+    <leader>xx       Toggle workspace diagnostics
+    <leader>xX       Toggle buffer diagnostics
+
+Harpoon (file bookmarks)
+    <leader>ha       Add current file to Harpoon list
+    <leader>hh       Toggle Harpoon quick menu
+    <leader>h1-4     Jump to Harpoon file 1–4
+
+Debugger (nvim-dap)
+    <leader>db       Toggle breakpoint
+    <leader>dc       Continue
+    <leader>ds       Step over
+    <leader>di       Step into
+    <leader>do       Step out
+    <leader>du       Toggle DAP UI
+
+Gitsigns
+    ]c / [c          Next / previous hunk
+    <leader>gs       Stage hunk
+    <leader>gu       Undo staged hunk
+    <leader>gp       Preview hunk
+    <leader>gb       Blame line
+
+Oil (file manager)
+    -                Open Oil in current directory
+    Enter            Open file or directory
+    -                Go up one directory
+    :w               Apply pending changes
+    g?               Show help
+
+CMake (cmake-tools.nvim)
+    :CMakeGenerate   Configure/generate build files
+    :CMakeBuild      Build the project
+    :CMakeRun        Run the selected target
+    :CMakeDebug      Debug the selected target
+    :CMakeClean      Clean build artifacts
+
+Copilot
+    Alt+Enter        Accept suggestion
+    Alt+]            Next suggestion
+    Alt+[            Previous suggestion
+    Ctrl+]           Dismiss suggestion
+
+Buffers
+    Ctrl+b           Next buffer
+    :bd              Delete (close) buffer
+    :ls              List open buffers
+
+Miscellaneous
+    Ctabs            Convert tabs to 4 spaces
+    Ctrl+i           Re-indent all lines
+    :Lazy            Open lazy.nvim plugin manager UI
+    :Lazy sync       Update all plugins
+    :LspInfo         Show active LSP clients
+    :TSUpdate        Update Treesitter parsers
+    :checkhealth     Run Neovim health checks
 ```
 
 # Misc Notes  
