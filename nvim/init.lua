@@ -30,6 +30,15 @@ opt.dictionary:append(vim.fn.expand("~/.dic/en_US.dic"))
 vim.g.mapleader      = " "
 vim.g.maplocalleader = " "
 
+-- Suppress nvim-lspconfig deprecation notice for Nvim < 0.11
+do
+  local _dep = vim.deprecate
+  vim.deprecate = function(name, ...)
+    if name == "nvim-lspconfig support for Nvim 0.10 or older" then return end
+    return _dep(name, ...)
+  end
+end
+
 -- ============================================================
 -- LAZY.NVIM BOOTSTRAP
 -- ============================================================
@@ -53,16 +62,45 @@ require("lazy").setup({
   { "nvim-lua/plenary.nvim",        lazy = true },
   { "nvim-tree/nvim-web-devicons",  lazy = true },
 
+  -- ─── Colorscheme ─────────────────────────────────────────
+  {
+    "catppuccin/nvim",
+    name     = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        integrations = {
+          treesitter  = true,
+          native_lsp  = { enabled = true },
+          indent_blankline = { enabled = true },
+          gitsigns    = true,
+          telescope   = { enabled = true },
+          harpoon     = true,
+          lualine     = true,
+        },
+      })
+      vim.cmd.colorscheme("catppuccin")
+    end,
+  },
+
   -- ─── Syntax / Parsing ────────────────────────────────────
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy  = false,
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "c", "cpp", "python", "lua", "bash", "cmake", "make" },
-        highlight        = { enable = true },
-        indent           = { enable = true },
+      -- Ensure parsers for common languages are installed
+      require("nvim-treesitter").install({
+        "c", "cpp", "python", "lua", "bash", "cmake", "make",
+        "markdown", "markdown_inline",
+      })
+      -- Keep regex highlighting for markdown so bold/italic/headings get color
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern  = "markdown",
+        callback = function(args)
+          vim.bo[args.buf].syntax = "markdown"
+        end,
       })
     end,
   },
@@ -143,7 +181,13 @@ require("lazy").setup({
   -- ─── Debugger ────────────────────────────────────────────
   {
     "mfussenegger/nvim-dap",
-    keys = { "<leader>d" },
+    keys = {
+      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle breakpoint" },
+      { "<leader>dc", function() require("dap").continue() end,          desc = "Continue" },
+      { "<leader>ds", function() require("dap").step_over() end,         desc = "Step over" },
+      { "<leader>di", function() require("dap").step_into() end,         desc = "Step into" },
+      { "<leader>do", function() require("dap").step_out() end,          desc = "Step out" },
+    },
     config = function()
       local dap = require("dap")
 
