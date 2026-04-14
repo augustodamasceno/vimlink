@@ -87,13 +87,16 @@ require("lazy").setup({
   -- ─── Syntax / Parsing ────────────────────────────────────
   {
     "nvim-treesitter/nvim-treesitter",
+    tag   = "v0.9.3",
     lazy  = false,
     build = ":TSUpdate",
     config = function()
-      -- Ensure parsers for common languages are installed
-      require("nvim-treesitter").install({
-        "c", "cpp", "python", "lua", "bash", "cmake", "make",
-        "markdown", "markdown_inline",
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "c", "cpp", "python", "lua", "bash", "cmake", "make",
+          "markdown", "markdown_inline",
+        },
+        highlight = { enable = true },
       })
       -- Keep regex highlighting for markdown so bold/italic/headings get color
       vim.api.nvim_create_autocmd("FileType", {
