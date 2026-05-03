@@ -254,6 +254,110 @@ git clone --filter=blob:none --branch=stable \
 
 ---
 
+# Windows Manual Installation (PowerShell + winget)
+
+> All commands below run in **PowerShell**. winget (App Installer) must be available.
+> If not, install it from the Microsoft Store or https://aka.ms/winget.
+
+## vim
+```powershell
+winget install --id vim.vim
+```
+
+## Python 3
+```powershell
+winget install --id Python.Python.3
+```
+
+## CMake
+```powershell
+winget install --id Kitware.CMake
+```
+
+## LLVM (clangd + clang-format)
+```powershell
+winget install --id LLVM.LLVM
+```
+
+## Universal Ctags
+```powershell
+winget install --id UniversalCtags.Ctags
+```
+
+## vim-plug
+```powershell
+# Install into both autoload locations so all Vim builds find it
+foreach ($dir in "$HOME\vimfiles\autoload", "$HOME\.vim\autoload") {
+    New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    (New-Object System.Net.WebClient).DownloadFile(
+        'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
+        "$dir\plug.vim"
+    )
+}
+```
+> Then open Vim and run `:PlugInstall`.
+
+## YouCompleteMe (C, C++ and Python)
+```powershell
+# After :PlugInstall has run:
+python "$HOME\.vim\plugged\YouCompleteMe\install.py" --clangd-completer
+```
+> Requires Python 3, CMake, and LLVM (clangd) to be installed first.
+
+---
+
+## neovim (>= 0.10)
+```powershell
+winget install --id Neovim.Neovim
+```
+
+## git
+```powershell
+winget install --id Git.Git
+```
+
+## Node.js (required by Copilot plugin)
+```powershell
+winget install --id OpenJS.NodeJS
+```
+
+## ripgrep (required by Telescope live_grep)
+```powershell
+winget install --id BurntSushi.ripgrep.MSVC
+```
+
+## pyright (Python language server)
+```powershell
+pip install pyright
+```
+
+## cmake-language-server
+```powershell
+pip install cmake-language-server
+```
+
+## black (Python formatter)
+```powershell
+pip install black
+```
+
+## debugpy (Python debug adapter for nvim-dap)
+```powershell
+pip install debugpy
+```
+
+## lazy.nvim (plugin manager — auto-bootstrapped)
+> lazy.nvim is cloned automatically on the first `nvim` launch.
+> To trigger it manually:
+```powershell
+git clone --filter=blob:none --branch=stable `
+  https://github.com/folke/lazy.nvim.git `
+  "$env:LOCALAPPDATA\nvim-data\lazy\lazy.nvim"
+```
+> Then open Neovim and run `:Lazy sync`.
+
+---
+
 # Cheat Sheet by Claude Sonnet 4.6
 > Prompt: Could you provide a Vim cheat sheet covering essential commands for navigation, editing, searching, and general file management?
 ```
