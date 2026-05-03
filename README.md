@@ -14,11 +14,20 @@
 ![Neovim Screenshot A](img/screenshot-neovim-a.jpg)
 ![Neovim Screenshot B](img/screenshot-neovim-b.jpg)
 
-## Installation  
-> Unix-like systems only.  
+## Installation
+
+An English dictionary from [Hunspell English Dictionaries](http://wordlist.aspell.net/hunspell-readme/)
+(MIT-like license; BSD license for the affix file) is shared by both setups.
+
+* **Vim**: backs up your existing config file and installs the new one.
+* **Neovim**: backs up your existing `init.lua`, copies `nvim/init.lua` to the
+  platform config directory, and bootstraps [lazy.nvim](https://github.com/folke/lazy.nvim)
+  on the first launch.
+
+### Unix-like
 
 By default `install.sh` sets up both **Vim** and **Neovim**.  
-Pass `--vim` or `--neovim` to install only one:  
+Pass `--vim` or `--neovim` to install only one:
 
 ```shell
 # Install both (default)
@@ -31,14 +40,31 @@ bash install.sh --vim
 bash install.sh --neovim
 ```
 
-* An English dictionary from [Hunspell English Dictionaries](http://wordlist.aspell.net/hunspell-readme/)  
-  (MIT-like license; BSD license for the affix file) is shared by both setups.  
-* **Vim**: backs up your existing `.vimrc` and installs the new one.  
-* **Neovim**: backs up your existing `init.lua`, copies `nvim/init.lua` to  
-  `~/.config/nvim/init.lua`, and bootstraps [lazy.nvim](https://github.com/folke/lazy.nvim)  
-  on the first launch.  
+### Windows (PowerShell + winget)
+
+Requires **Windows 10/11** with [winget](https://aka.ms/winget) (App Installer) and **PowerShell 5.1+**.
+
+Open PowerShell in the repository directory and run:
+
+```powershell
+# Install both (default)
+.\install.ps1
+
+# Install only Vim
+.\install.ps1 -Vim
+
+# Install only Neovim
+.\install.ps1 -Neovim
+```
+
+> If script execution is blocked, allow it for the current session first:
+> ```powershell
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+> ```  
 
 ## Files
+
+### Unix-like
 ```shell
 # Shared
 ~/.dic/en_US.dic
@@ -51,25 +77,39 @@ bash install.sh --neovim
 ~/.config/nvim/init.lua
 ~/.config/nvim/init.lua.backup_*
 ~/.local/share/nvim/lazy/          # lazy.nvim + all plugins
+```
+
+### Windows
+```powershell
+# Shared
+~\.dic\en_US.dic
+
+# Vim  (Vim reads _vimrc on Windows)
+~\_vimrc
+~\_vimrc_backup*
+~\vimfiles\                        # vim-plug and plugins
+
+# Neovim
+$env:LOCALAPPDATA\nvim\init.lua
+$env:LOCALAPPDATA\nvim\init.lua.backup_*
+$env:LOCALAPPDATA\nvim-data\lazy\ # lazy.nvim + all plugins
 ```  
 
 ## Vim Dependencies  
 
-`install.sh` automatically installs all dependencies listed below. For manual installation instructions of any individual package, see [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md).
+The installers (`install.sh` / `install.ps1`) automatically install all dependencies listed below. For manual installation instructions of any individual package, see [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md).
 
-| Dependency | Description |
-|---|---|
-| **vim-nox** | Vim build compiled with Python 3 support, required by YouCompleteMe |
-| **wget** | Downloads vim-plug and the English dictionary |
-| **unzip** | Extracts the downloaded dictionary archive |
-| **python3** | Runtime for YouCompleteMe and its build system |
-| **python3-dev** | Python 3 C headers needed to compile the YouCompleteMe native extension |
-| **cmake** | Build system used to compile the ycmd server |
-| **build-essential** | GCC/G++ compiler and make, required to build ycmd |
-| **clangd** | Language server providing C and C++ completions via YouCompleteMe |
-| **Exuberant Ctags** | Generates tag files for code navigation (`:tags` command) |
-| **vim-plug** | Vim plugin manager, fetches and manages all Vim plugins |
-| **YouCompleteMe** | Fast code completion engine for C, C++ and Python |
+| Dependency | Description | winget ID (Windows) |
+|---|---|---|
+| **vim** | Vim with Python 3 support, required by YouCompleteMe | `vim.vim` |
+| **python3** | Runtime for YouCompleteMe and its build system | `Python.Python.3` |
+| **cmake** | Build system used to compile the ycmd server | `Kitware.CMake` |
+| **clangd** | Language server providing C and C++ completions via YouCompleteMe | `LLVM.LLVM` |
+| **Exuberant / Universal Ctags** | Generates tag files for code navigation (`:tags` command) | `UniversalCtags.Ctags` |
+| **vim-plug** | Vim plugin manager, fetches and manages all Vim plugins | *(auto-downloaded)* |
+| **YouCompleteMe** | Fast code completion engine for C, C++ and Python | *(built from source)* |
+
+> **Unix extras:** `wget`, `unzip`, `python3-dev`, and `build-essential` are also installed automatically on Unix/Linux.
 
 ## Vim Features and commands 
 
@@ -104,24 +144,24 @@ bash install.sh --neovim
 
 ## Neovim Dependencies  
 
-`install.sh` automatically installs all dependencies listed below. For manual installation instructions of any individual package, see [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md).
+The installers (`install.sh` / `install.ps1`) automatically install all dependencies listed below. For manual installation instructions of any individual package, see [notes.md](https://github.com/augustodamasceno/vimlink/blob/main/notes.md).
 
-| Dependency | Description |
-|---|---|
-| **neovim** ≥ 0.10 | Neovim runtime |
-| **git** | Required by lazy.nvim to clone plugins |
-| **wget / curl** | Downloads the English dictionary |
-| **unzip** | Extracts the dictionary archive |
-| **Node.js** | Required by the GitHub Copilot plugin |
-| **ripgrep** | Fast grep backend for Telescope `live_grep` |
-| **clangd** | Language server for C and C++ |
-| **pyright** | Language server for Python |
-| **cmake-language-server** | Language server for CMake files |
-| **black** | Python formatter used by conform.nvim |
-| **clang-format** | C/C++ formatter used by conform.nvim |
-| **debugpy** | Python debug adapter for nvim-dap |
-| **gdb** | C/C++ debugger for nvim-dap |
-| **lazy.nvim** | Plugin manager — self-bootstrapped from `init.lua` on first launch |
+| Dependency | Description | winget ID (Windows) |
+|---|---|---|
+| **neovim** ≥ 0.10 | Neovim runtime | `Neovim.Neovim` |
+| **git** | Required by lazy.nvim to clone plugins | `Git.Git` |
+| **Node.js** | Required by the GitHub Copilot plugin | `OpenJS.NodeJS` |
+| **ripgrep** | Fast grep backend for Telescope `live_grep` | `BurntSushi.ripgrep.MSVC` |
+| **clangd** | Language server for C and C++ | `LLVM.LLVM` |
+| **clang-format** | C/C++ formatter used by conform.nvim | `LLVM.LLVM` |
+| **pyright** | Language server for Python | `pip install pyright` |
+| **cmake-language-server** | Language server for CMake files | `pip install cmake-language-server` |
+| **black** | Python formatter used by conform.nvim | `pip install black` |
+| **debugpy** | Python debug adapter for nvim-dap | `pip install debugpy` |
+| **gdb** | C/C++ debugger for nvim-dap (Unix/Linux) | *(not required on Windows)* |
+| **lazy.nvim** | Plugin manager — self-bootstrapped from `init.lua` on first launch | *(auto-downloaded)* |
+
+> **Unix extras:** `wget`/`curl` and `unzip` are also installed automatically on Unix/Linux.
 
 ## Neovim Features and Commands  
 
